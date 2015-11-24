@@ -1,10 +1,18 @@
 FROM centos:centos7
 MAINTAINER Andy Furnival <Andy.Furnival@gmail.com>
 
-RUN yum clean all && \
-    yum -y install epel-release
+RUN yum update \
+ 	
+ 	yum clean all && \
 
+	yum -y install epel-release \
 
-RUN yum install wget -y
+ 	yum install wget -y \
 
-RUN yum --disablerepo="*" --enablerepo=base install tar -y
+ 	yum --disablerepo="*" --enablerepo=base install tar -y 
+
+RUN	yum install openssl-devel -y \
+
+ 	yum install gcc gcc-c++ make -y \
+
+ 	yum clean all
